@@ -26,8 +26,8 @@ library:
   source-dirs: src
 
 executables:
-  udp-test-exe:
-    main:                Main.hs
+  udp-test-server-exe:
+    main:                server/Main.hs
     source-dirs:         app
     ghc-options:
     - -threaded
@@ -37,6 +37,19 @@ executables:
     - udp-test
     - network
     - bytestring
+
+  udp-test-client-exe:
+    main:                client/Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - udp-test
+    - network
+    - bytestring
+    - text
 
 tests:
   udp-test-test:
